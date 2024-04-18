@@ -1,4 +1,4 @@
-# Hackerranking challenge 'Optimize servers'
+# Hackerranking challenge 'Optimise servers'
 
 ## Challenge description:
 
@@ -9,16 +9,17 @@ Your task is to write a function **GetRejectedRequests** to compute and return t
 
 ### Example 1
 
-**requests**: [
+**requests**: 
 ```
+[
     "1 172.253.115.138 50000", 
     "2 172.253.115.139 50100", 
     "3 172.253.115.138 50210", 
     "4 172.253.115.139 50300", 
     "5 172.253.115.138 51000",
     "6 172.253.115.139 60300"
-```
 ]
+```
 **limit_per_second**: 1
 
 The third request and the first request are from the same IP and only 210ms apart. Therefore, the third request should be rejected. The fifth request, also with the same IP, is not rejected since 1000ms (i.e. 1 second) has elapsed since the last accepted (i.e. first) request, so we can accept this request.
@@ -28,13 +29,14 @@ The expected answer is therefore the request ids of the third and fourth request
 
 ### Example 2
 
-**requests**: [
+**requests**: 
 ```
+[
     "10 172.253.115.138 50000", 
     "20 172.253.115.138 50000", 
     "30 172.253.115.138 50000"
-```
 ]
+```
 **limit_per_second**: 2
 
 In this case, all requests have the same IP address and timestamp. We will process the list in order and accept the first and second request.
@@ -44,14 +46,15 @@ The expected answer is therefore the request ID of the third request i.e. **[30]
 
 ###  Example 3
 
-**requests**: [
+**requests**:
 ```
+[
     "1 172.253.115.138 50000",
     "2 172.253.115.138 50900",
     "3 172.253.115.138 51000",
     "4 172.253.115.138 51500"
-```
 ]
+```
 **limit_per_second**: 2
 
 We accept the first and second requests. The third request is also accepted as 1000ms has elapsed since the first request.
@@ -74,13 +77,17 @@ The given solution take into account consideration that the idea is:
 get array of all rejected requests, rejected requests are any requests made more that **limit_per_second** times
 during last second (i.e. now() - 1 second (excluding)), where now is given request time).
 F.e. for 2 requests per second:
-```
+
 [
     00_000,
+    
     00_100,
+    
     00_500, <- skip as during last second (-500ms; 500ms] it's 3rd request
+    
     01_000, <- don't skip as during last second (0ms; 1_000ms] it's 2nd not declined request (0_000 is not inclusive and 00_500 wasn't counted as it's been rejected)
+    
     01_000, <- skip as during last second (0ms; 1_000ms] it's 3rd request, i.e 01_000, 00_100 were included
+    
     01_900, <- don't skip as during last second (00_900ms; 01_900ms] it's 2nd not declined request (second 01_000 was declined)
-] 
-```
+]
