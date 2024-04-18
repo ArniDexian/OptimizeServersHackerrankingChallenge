@@ -78,16 +78,14 @@ get array of all rejected requests, rejected requests are any requests made more
 during last second (i.e. now() - 1 second (excluding)), where now is given request time).
 F.e. for 2 requests per second:
 
-[
-    00_000,
-    
-    00_100,
-    
-    00_500, <- skip as during last second (-500ms; 500ms] it's 3rd request
-    
-    01_000, <- don't skip as during last second (0ms; 1_000ms] it's 2nd not declined request (0_000 is not inclusive and 00_500 wasn't counted as it's been rejected)
-    
-    01_000, <- skip as during last second (0ms; 1_000ms] it's 3rd request, i.e 01_000, 00_100 were included
-    
-    01_900, <- don't skip as during last second (00_900ms; 01_900ms] it's 2nd not declined request (second 01_000 was declined)
-]
+00_000,
+
+00_100,
+
+00_500, <- skip as during last second (-500ms; 500ms] it's 3rd request
+
+01_000, <- don't skip as during last second (0ms; 1_000ms] it's 2nd not declined request (0_000 is not inclusive and 00_500 wasn't counted as it's been rejected)
+
+01_000, <- skip as during last second (0ms; 1_000ms] it's 3rd request, i.e 01_000, 00_100 were included
+
+01_900, <- don't skip as during last second (00_900ms; 01_900ms] it's 2nd not declined request (second 01_000 was declined)
