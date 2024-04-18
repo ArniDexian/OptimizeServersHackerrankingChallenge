@@ -10,12 +10,14 @@ Your task is to write a function **GetRejectedRequests** to compute and return t
 ### Example 1
 
 **requests**: [
+```
     "1 172.253.115.138 50000", 
     "2 172.253.115.139 50100", 
     "3 172.253.115.138 50210", 
     "4 172.253.115.139 50300", 
     "5 172.253.115.138 51000",
     "6 172.253.115.139 60300"
+```
 ]
 **limit_per_second**: 1
 
@@ -27,9 +29,11 @@ The expected answer is therefore the request ids of the third and fourth request
 ### Example 2
 
 **requests**: [
+```
     "10 172.253.115.138 50000", 
     "20 172.253.115.138 50000", 
     "30 172.253.115.138 50000"
+```
 ]
 **limit_per_second**: 2
 
@@ -41,10 +45,12 @@ The expected answer is therefore the request ID of the third request i.e. **[30]
 ###  Example 3
 
 **requests**: [
+```
     "1 172.253.115.138 50000",
     "2 172.253.115.138 50900",
     "3 172.253.115.138 51000",
     "4 172.253.115.138 51500"
+```
 ]
 **limit_per_second**: 2
 
@@ -68,6 +74,7 @@ The given solution take into account consideration that the idea is:
 get array of all rejected requests, rejected requests are any requests made more that **limit_per_second** times
 during last second (i.e. now() - 1 second (excluding)), where now is given request time).
 F.e. for 2 requests per second:
+```
 [
     00_000,
     00_100,
@@ -76,3 +83,4 @@ F.e. for 2 requests per second:
     01_000, <- skip as during last second (0ms; 1_000ms] it's 3rd request, i.e 01_000, 00_100 were included
     01_900, <- don't skip as during last second (00_900ms; 01_900ms] it's 2nd not declined request (second 01_000 was declined)
 ] 
+```

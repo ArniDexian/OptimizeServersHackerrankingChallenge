@@ -35,7 +35,6 @@
 		0EF4699C2BD15A8E000F8B48 /* SolutionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SolutionTests.swift; sourceTree = "<group>"; };
 		0EF4699E2BD15A94000F8B48 /* RequestCounter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestCounter.swift; sourceTree = "<group>"; };
 		0EF469A02BD15B92000F8B48 /* Solution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution.swift; sourceTree = "<group>"; };
-		0EF469A32BD15D25000F8B48 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +72,6 @@
 				0EF469912BD15A64000F8B48 /* main.swift */,
 				0EF4699E2BD15A94000F8B48 /* RequestCounter.swift */,
 				0EF469A02BD15B92000F8B48 /* Solution.swift */,
-				0EF469A32BD15D25000F8B48 /* README.md */,
 			);
 			path = OptimizeServersHackerrankingChallenge;
 			sourceTree = "<group>";
