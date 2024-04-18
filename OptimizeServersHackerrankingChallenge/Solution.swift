@@ -1,5 +1,3 @@
-import Foundation
-
 func getRejectedRequests(requests: [String], limitPerSecond: Int) -> [Int] {
     var counter = RequestCounter(limitPerSecond: limitPerSecond)
 

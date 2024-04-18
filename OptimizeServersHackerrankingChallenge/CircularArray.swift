@@ -1,12 +1,3 @@
-//
-//  CircularArray.swift
-//  GoodnotesChallenge
-//
-//  Created by Arni Dexian on 18/04/2024.
-//
-
-import Foundation
-
 struct CircularArray<Element>: Sequence {
     typealias Element = Element
 
